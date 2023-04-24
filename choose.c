@@ -13,8 +13,8 @@ char getDirection()
 {
     char ch;
     printf("请输入'w','s','a','d'控制人物的行走方向。\n");
-    scanf("%c", &ch);
 
+    ch=getch();
     setbuf(stdin, NULL); // 清空缓冲区实现连续输入。
 
     ch = lowerCase(ch);
@@ -34,8 +34,8 @@ int Challenge()
 {
     printf("是否进入困难关卡?\n请输入Y或N:");
     char challenge;
-    setbuf(stdin, NULL);
-    scanf("%c%*c", &challenge);
+    challenge=getch();
+    setbuf(stdin,NULL);
     if (challenge == 'y' || challenge == 'Y')
     {
         return 2;

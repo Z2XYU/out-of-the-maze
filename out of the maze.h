@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <time.h>
+#include<conio.h>
 
 #define EXIT 0
 #define EASY 1

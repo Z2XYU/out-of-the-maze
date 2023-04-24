@@ -30,7 +30,7 @@ void move(char ch, char Dmap[13][17])
             Dmap[DstartRow - 1][DstartCol] = 'R';
 
             DstartRow = DstartRow - 1;
-            DstartCol = DstartCol;
+
         }
         break;
     case 's':
@@ -39,7 +39,7 @@ void move(char ch, char Dmap[13][17])
             Dmap[DstartRow][DstartCol] = ' ';
             Dmap[DstartRow + 1][DstartCol] = 'R';
             DstartRow = DstartRow + 1;
-            DstartCol = DstartCol;
+
         }
         break;
     case 'a':
@@ -47,7 +47,7 @@ void move(char ch, char Dmap[13][17])
         {
             Dmap[DstartRow][DstartCol] = ' ';
             Dmap[DstartRow][DstartCol - 1] = 'R';
-            DstartRow = DstartRow;
+
             DstartCol = DstartCol - 1;
         }
         break;
@@ -56,7 +56,7 @@ void move(char ch, char Dmap[13][17])
         {
             Dmap[DstartRow][DstartCol] = ' ';
             Dmap[DstartRow][DstartCol + 1] = 'R';
-            DstartRow = DstartRow;
+
             DstartCol = DstartCol + 1;
         }
         break;

@@ -2,19 +2,19 @@
 
 int main()
 {
-    printf("欢迎进入逃出迷宫\n1.简单模式\n2.困难模式\n0.退出游戏");
-    int input;
-    char choose;
+    printf("欢迎进入逃出迷宫\n1.简单模式\n2.困难模式\n0.退出游戏\n");
+    int choose=0;
 
     printf("请选择模式：");
-    scanf("%d%*c", &input);
+    //将字符获取的字符转化为整形，减去字符'0',使其值为其值整形的大小
+    choose=(int)getch()-'0';
     while (1)
     {
-        switch (input)
+        switch (choose)
         {
         case EASY:
             easy();
-            input = Challenge();
+            choose = Challenge();
             break;
         case DIFFICULT:
             difficult();
