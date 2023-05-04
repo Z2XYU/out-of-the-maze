@@ -22,20 +22,12 @@ void Emove(char choose, char Emap[6][6])
 {
     switch (choose)
     {
-    case 'a':
-        if (Emap[EstartROW][EstartCol - 1] != '#' && EstartROW >= 0 && EstartCol >= 0)
-        {
-            Emap[EstartROW][EstartROW] = ' ';
-            Emap[EstartROW][EstartCol - 1] = 'R';
-            EstartCol -= 1;
-        }
-        break;
     case 'w':
-        if (Emap[EstartROW - 1][EstartCol] != '#' && EstartROW >= 0 && EstartCol >= 0)
         {
             Emap[EstartROW][EstartCol] = ' ';
             Emap[EstartROW - 1][EstartCol] = 'R';
-            EstartROW -= 1;
+
+            EstartROW = EstartROW - 1;
         }
         break;
     case 's':
@@ -43,7 +35,16 @@ void Emove(char choose, char Emap[6][6])
         {
             Emap[EstartROW][EstartCol] = ' ';
             Emap[EstartROW + 1][EstartCol] = 'R';
-            EstartROW += 1;
+            EstartROW = EstartROW + 1;
+        }
+        break;
+    case 'a':
+        if (Emap[EstartROW][EstartCol - 1] != '#' && EstartROW >= 0 && EstartCol >= 0)
+        {
+            Emap[EstartROW][EstartCol] = ' ';
+            Emap[EstartROW][EstartCol - 1] = 'R';
+
+            EstartCol = EstartCol - 1;
         }
         break;
     case 'd':
@@ -51,7 +52,8 @@ void Emove(char choose, char Emap[6][6])
         {
             Emap[EstartROW][EstartCol] = ' ';
             Emap[EstartROW][EstartCol + 1] = 'R';
-            EstartCol += 1;
+
+            EstartCol = EstartCol + 1;
         }
         break;
     default:
