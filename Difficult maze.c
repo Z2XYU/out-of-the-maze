@@ -24,26 +24,24 @@ void move(char ch, char Dmap[13][17])
     switch (ch)
     {
     case 'w':
-        if (Dmap[DstartRow - 1][DstartCol] != '#')
+        if (Dmap[DstartRow - 1][DstartCol] != '#' && DstartRow >= 0 && DstartCol >= 0)
         {
             Dmap[DstartRow][DstartCol] = ' ';
             Dmap[DstartRow - 1][DstartCol] = 'R';
 
             DstartRow = DstartRow - 1;
-
         }
         break;
     case 's':
-        if (Dmap[DstartRow + 1][DstartCol] != '#')
+        if (Dmap[DstartRow + 1][DstartCol] != '#' && DstartRow >= 0 && DstartCol >= 0)
         {
             Dmap[DstartRow][DstartCol] = ' ';
             Dmap[DstartRow + 1][DstartCol] = 'R';
             DstartRow = DstartRow + 1;
-
         }
         break;
     case 'a':
-        if (Dmap[DstartRow][DstartCol - 1] != '#')
+        if (Dmap[DstartRow][DstartCol - 1] != '#' && DstartRow >= 0 && DstartCol >= 0)
         {
             Dmap[DstartRow][DstartCol] = ' ';
             Dmap[DstartRow][DstartCol - 1] = 'R';
@@ -52,7 +50,7 @@ void move(char ch, char Dmap[13][17])
         }
         break;
     case 'd':
-        if (Dmap[DstartRow][DstartCol + 1] != '#')
+        if (Dmap[DstartRow][DstartCol + 1] != '#' && DstartRow >= 0 && DstartCol >= 0)
         {
             Dmap[DstartRow][DstartCol] = ' ';
             Dmap[DstartRow][DstartCol + 1] = 'R';
@@ -93,7 +91,7 @@ void difficult()
 
         printDMap(Dmap, row, col);
 
-        if (win(DstartRow, DstartCol, DendRow, DendCol) == 0)
+        if (win(DstartRow, DstartCol, DendRow, DendCol))
             break;
     } while (1);
 }

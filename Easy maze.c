@@ -23,7 +23,7 @@ void Emove(char choose, char Emap[6][6])
     switch (choose)
     {
     case 'a':
-        if (Emap[EstartROW][EstartCol - 1] != '#')
+        if (Emap[EstartROW][EstartCol - 1] != '#' && EstartROW >= 0 && EstartCol >= 0)
         {
             Emap[EstartROW][EstartROW] = ' ';
             Emap[EstartROW][EstartCol - 1] = 'R';
@@ -31,7 +31,7 @@ void Emove(char choose, char Emap[6][6])
         }
         break;
     case 'w':
-        if (Emap[EstartROW - 1][EstartCol] != '#')
+        if (Emap[EstartROW - 1][EstartCol] != '#' && EstartROW >= 0 && EstartCol >= 0)
         {
             Emap[EstartROW][EstartCol] = ' ';
             Emap[EstartROW - 1][EstartCol] = 'R';
@@ -39,7 +39,7 @@ void Emove(char choose, char Emap[6][6])
         }
         break;
     case 's':
-        if (Emap[EstartROW + 1][EstartCol] != '#')
+        if (Emap[EstartROW + 1][EstartCol] != '#' && EstartROW >= 0 && EstartCol >= 0)
         {
             Emap[EstartROW][EstartCol] = ' ';
             Emap[EstartROW + 1][EstartCol] = 'R';
@@ -47,7 +47,7 @@ void Emove(char choose, char Emap[6][6])
         }
         break;
     case 'd':
-        if (Emap[EstartROW][EstartCol + 1] != '#')
+        if (Emap[EstartROW][EstartCol + 1] != '#' && EstartROW >= 0 && EstartCol >= 0)
         {
             Emap[EstartROW][EstartCol] = ' ';
             Emap[EstartROW][EstartCol + 1] = 'R';
@@ -64,12 +64,12 @@ void Emove(char choose, char Emap[6][6])
 void easy()
 {
     system("cls");
-    char Emap[6][6] = {{'#','#','#','#','#','#'},
-                       {'#','R',' ','#',' ','#'},
-                       {'#',' ','#','#',' ',' '},
-                       {'#',' ',' ','#',' ','#'},
-                       {'#','#',' ',' ',' ','#'},
-                       {'#','#','#','#','#','#'}};
+    char Emap[6][6] = {{'#', '#', '#', '#', '#', '#'},
+                       {'#', 'R', ' ', '#', ' ', '#'},
+                       {'#', ' ', '#', '#', ' ', ' '},
+                       {'#', ' ', ' ', '#', ' ', '#'},
+                       {'#', '#', ' ', ' ', ' ', '#'},
+                       {'#', '#', '#', '#', '#', '#'}};
     int row = sizeof(Emap) / sizeof(Emap[1]);
     int col = sizeof(Emap[1]) / sizeof(Emap[1][1]);
     PrintEmap(Emap, row, col);
@@ -79,7 +79,7 @@ void easy()
         Emove(choose, Emap);
         PrintEmap(Emap, row, col);
 
-        if (win(EstartROW, EstartCol, EendROW, EendCol) == 0)
+        if (win(EstartROW, EstartCol, EendROW, EendCol))
             break;
     }
 }
